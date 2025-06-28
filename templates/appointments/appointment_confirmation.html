@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}DocConnect – Appointment Confirmed{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/book_appointment_confirmation.css' %}">
+{% endblock %}
+
+{% block content %}
+  <section class="confirmation-section">
+    <div class="confirmation-container">
+      <h1>Appointment Booked Successfully!</h1>
+      <p>Your appointment has been successfully booked. You can now go to your patient dashboard.</p>
+      <a href="{% url 'patient_afterlogin' %}" class="btn">Go to Patient Dashboard</a>
+    </div>
+  </section>
+
+{% endblock %}

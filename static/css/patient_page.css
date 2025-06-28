@@ -1,0 +1,71 @@
+/* Reset margin/padding to avoid white strip */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.stakeholders-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%),
+              url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=2070&q=80')
+              no-repeat center/cover;
+  background-blend-mode: overlay;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(255, 255, 255, 0.85); /* Slightly more transparent */
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.overlay h1 {
+  color: #004080;
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.stakeholder-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.stakeholder {
+  background: #fff;
+  color: #004080;
+  padding: 20px 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 140px;
+  text-align: center;
+}
+
+.stakeholder:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 64, 128, 0.3);
+}
+
+.stakeholder i {
+  font-size: 36px;
+  margin-bottom: 8px;
+  color: #1e90ff;
+  display: block;
+}
+
+.stakeholder h3 {
+  font-size: 1.3em;
+}

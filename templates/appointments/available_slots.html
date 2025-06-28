@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Available Slots – DocConnect{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/available_slots.css' %}">
+<style>
+  .slots-section {
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .dashboard-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+
+  .dashboard-btn:hover {
+    background-color: #0056b3;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  thead {
+    background-color: #f0f8ff;
+  }
+
+  .book-button {
+    background-color: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .book-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .message, .error-message, .success-message {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 500;
+  }
+
+  .error-message {
+    color: red;
+  }
+
+  .success-message {
+    color: green;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="slots-section">
+  <div class="container">
+
+    <!-- Top Bar with Dashboard Button -->
+    <div class="top-bar">
+      <a href="{% url 'patient_afterlogin' %}" class="dashboard-btn">← Dashboard</a>
+      <div></div>
+    </div>
+
+    {% with hospital_name as code %}
+    <h1>
+      Available Slots for {{ doctor_name }} at
+      {% if code == "Hospital1" %}
+        Garden City Hospital Center
+      {% elif code == "Hospital2" %}
+        Mountain View Hospital Center
+      {% elif code == "Hospital3" %}
+        Silverwood Hospital
+      {% else %}
+        {{ code }}
+      {% endif %}
+    </h1>
+    {% endwith %}
+
+    {% if available_slots %}
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Duration</th>
+          <th>Hospital</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for slot in available_slots %}
+        <tr>
+          <td>{{ slot.slot_date }}</td>
+          <td>{{ slot.slot_time }}</td>
+          <td>{{ slot.slot_duration }} mins</td>
+          <td>
+            {% if hospital_name == "Hospital1" %}
+              Garden City Hospital Center
+            {% elif hospital_name == "Hospital2" %}
+              Mountain View Hospital Center
+            {% elif hospital_name == "Hospital3" %}
+              Silverwood Hospital
+            {% else %}
+              {{ hospital_name }}
+            {% endif %}
+          </td>
+          <td>
+            <form action="{% url 'book_appointment' %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="doctor_id" value="{{ doctor_id }}">
+              <input type="hidden" name="doctor_name" value="{{ doctor_name }}">
+              <input type="hidden" name="department" value="{{ department }}">
+              <input type="hidden" name="patient_id" value="{{ request.user.id }}">
+              <input type="hidden" name="appointment_date" value="{{ slot.slot_date|date:'Y-m-d' }}">
+              <input type="hidden" name="appointment_time" value="{{ slot.slot_time|date:'H:i:s' }}">
+              <input type="hidden" name="hospital_name" value="{{ hospital_name }}">
+              <button type="submit" class="book-button" {% if slot.is_booked %} disabled {% endif %}>
+                Book
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p class="message">No available slots found.</p>
+    {% endif %}
+
+    {% if error_message %}
+      <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+    {% if success_message %}
+      <p class="success-message">{{ success_message }}</p>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

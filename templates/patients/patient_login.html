@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}DocConnect – Patient Login{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/patient_login.css' %}?v=1">
+{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+  <div class="form-container">
+    <h2>Patient Login</h2>
+    <form method="POST" action="{% url 'verify_patient' %}">
+      {% csrf_token %}
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+
+      <p class="signup-link">
+        Don't have an account?
+        <a href="{% url 'patient_signup' %}">Register here</a>
+      </p>
+    </form>
+  </div>
+</div>
+    <footer class="footer">
+    <p>&copy; 2025 DocConnect. All rights reserved.</p>
+  </footer>
+{% endblock %}

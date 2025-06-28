@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}DocConnect – Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/homePage.css' %}?v=1">
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar">
+  <div class="nav-container">
+    <ul class="nav-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<!-- Hero / Welcome -->
+<section class="stakeholders-section">
+  <div class="overlay two-column">
+    <div class="text-content">
+      <h1>Welcome to DocConnect</h1>
+      <div class="stakeholder-container">
+        <a href="{% url 'patients_page' %}" class="stakeholder">
+          <i class="fas fa-user-md"></i>
+          <h3>Explore</h3>
+          <p>Find and book doctor appointments at different hospitals.</p>
+        </a>
+      </div>
+    </div>
+    <div class="image-content">
+      <img src="{% static 'images/3813491.jpg' %}" alt="Booking System" />
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="info-card">
+  <i class="fas fa-hospital-alt icon"></i>
+  <h2>About Us</h2>
+  <p>
+    DocConnect is a unified hospital appointment management platform designed to seamlessly integrate multiple hospitals into a centralized system. Whether you're a patient looking to book a consultation or a hospital managing schedules, DocConnect simplifies the process with intelligent doctor discovery, real-time slot availability, and secure appointment handling—all under one interface.
+  </p>
+</section>
+
+<!-- Services -->
+<section id="services" class="info-card">
+  <i class="fas fa-cogs icon"></i>
+  <h2>Our Services</h2>
+  <ul>
+    <li><strong>Multi-Hospital Integration:</strong> Connects patients with doctors across different hospitals through a single platform.</li>
+    <li><strong>Doctor Discovery:</strong> Search for specialists by department or expertise and view availability in real time.</li>
+    <li><strong>Smart Appointment Booking:</strong> Schedule, view, and manage appointments easily with secure slot reservation.</li>
+    <li><strong>Cross-Hospital Data Mapping:</strong> Advanced schema-matching algorithms enable consistent access to diverse hospital databases.</li>
+    <li><strong>Patient Dashboard:</strong> Personalized space for patients to review past bookings, upcoming appointments, and manage profiles.</li>
+  </ul>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="info-card">
+  <i class="fas fa-envelope icon"></i>
+  <h2>Contact Us</h2>
+  <p>Feel free to drop a comment: <a href="mailto:docconnect@info.com">docconnect@info.com</a></p>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2025 DocConnect. All rights reserved.</p>
+</footer>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Patient Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/patient_dashboard.css' %}?v=2">
+{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+  <div class="overlay">
+    
+    <!-- Header Section -->
+    <header class="dashboard-header">
+      <div class="header-content">
+        <div class="welcome-info">
+          <h1 class="dashboard-title">Patient Dashboard</h1>
+          <p class="welcome-message" style="font-size: 1.3em;">Welcome back, <strong>{{ patient_name }}</strong></p>
+        </div>
+        <a href="{% url 'patient_logout' %}" class="logout-button">
+          <span class="logout-icon">🔓</span>
+          <span class="logout-text">Logout</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h2 class="hero-title">
+            Manage your <span class="highlight">healthcare</span> with ease
+          </h2>
+          <p class="hero-description">
+            Access appointments, view your medical history, and connect with healthcare professionals 
+            – all in one secure platform with <strong>DocConnect</strong>.
+          </p>
+          
+        </div>
+      </section>
+
+      <!-- Features Grid -->
+      <section class="features-section">
+        <div class="features-grid">
+          
+          <!-- Book Appointment Card -->
+          <article class="feature-card primary-card">
+            <div class="card-header">
+              <div class="card-icon">📅</div>
+              <h3 class="card-title">Book an Appointment</h3>
+            </div>
+            <div class="card-body">
+              <p class="card-description">
+                Find healthcare professionals by department and schedule your visit 
+                at a time that works best for you.
+              </p>
+            </div>
+            <div class="card-footer">
+              <a href="{% url 'select_departments' %}" class="btn btn-primary">
+                <span class="btn-text">Book Now</span>
+                <span class="btn-arrow">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Appointment History Card -->
+          <article class="feature-card secondary-card">
+            <div class="card-header">
+              <div class="card-icon">📖</div>
+              <h3 class="card-title">Appointment History</h3>
+            </div>
+            <div class="card-body">
+              <p class="card-description">
+                Keep track of your healthcare journey by viewing your past 
+                appointments and upcoming scheduled visits.
+              </p>
+            </div>
+            <div class="card-footer">
+              <a href="{% url 'patient_appointments' %}" class="btn btn-outline-primary">
+                <span class="btn-text">View History</span>
+                <span class="btn-arrow">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Status Section -->
+      <section class="status-section">
+        <div class="status-card">
+          <div class="status-content">
+            <h3 class="status-title">Your Healthcare Dashboard</h3>
+            <p class="status-description">
+              Stay connected with your healthcare providers and manage your medical appointments 
+              efficiently through our secure platform.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+</section>
+{% endblock %}

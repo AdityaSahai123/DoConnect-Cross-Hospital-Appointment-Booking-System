@@ -1,0 +1,115 @@
+.department-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.department-overlay {
+  background-color: #ffffffee;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  padding: 40px 30px;
+  position: relative;
+}
+
+/* Header */
+.department-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.nav-button {
+  background-color: #004080;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #1e90ff;
+}
+
+.page-title {
+  font-size: 1.8em;
+  color: #004080;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Card Styles */
+.department-card {
+  background: #f9f9ff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #004080;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-description {
+  text-align: center;
+  color: #555;
+  font-size: 1em;
+  margin-bottom: 25px;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+/* Button */
+.btn-primary {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 1em;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #1e90ff;
+}
+
+/* Error */
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+}

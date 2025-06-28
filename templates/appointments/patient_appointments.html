@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}DocConnect – My Appointments{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/patient_appointments.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+  <div class="container py-5 mt-0">
+
+    <!-- Dashboard Button -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <a href="{% url 'patient_afterlogin' %}" class="btn btn-outline-primary">
+        <span>🏠</span> Dashboard
+      </a>
+      <h2 class="mb-0 text-center flex-grow-1">My Appointments</h2>
+      <div style="width: 100px;"></div> <!-- Spacer to center title -->
+    </div>
+
+    {% for status, group in grouped_appointments.items %}
+    <h4 class="mt-5">{{ status|title }} Appointments</h4>
+
+    {% if group %}
+    <table class="table table-bordered shadow-sm table-hover">
+      <thead class="table-{{ status|yesno:'success,danger,primary' }}">
+        <tr>
+          <th>Hospital</th>
+          <th>Department</th>
+          <th>Doctor Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          {% if status == 'upcoming' %}<th>Action</th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for appt in group %}
+        <tr>
+          <td>
+            {% if appt.hospital_name == "Hospital1" %}
+            Garden City Hospital Center
+            {% elif appt.hospital_name == "Hospital2" %}
+            Mountain View Hospital Center
+            {% elif appt.hospital_name == "Hospital3" %}
+            Silverwood Hospital
+            {% else %}
+            {{ appt.hospital_name }}
+            {% endif %}
+          </td>
+
+          <td>{{ appt.department }}</td>
+          <td>{{ appt.doctor_name }}</td>
+          <td>{{ appt.appointment_date }}</td>
+          <td>{{ appt.appointment_time }}</td>
+          <td>{{ appt.status }}</td>
+          {% if status == 'upcoming' %}
+          <td>
+            <form method="post" action="{% url 'cancel_appointment' %}">
+              {% csrf_token %}
+              <input type="hidden" name="appointment_id" value="{{ appt.id }}">
+              <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
+            </form>
+          </td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-warning">No {{ status }} appointments.</div>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+{% endblock %}

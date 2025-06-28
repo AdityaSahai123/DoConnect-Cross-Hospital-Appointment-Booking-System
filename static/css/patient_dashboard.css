@@ -1,0 +1,272 @@
+/* === Base Layout === */
+.dashboard-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%),
+              url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=2070&q=80')
+              no-repeat center/cover;
+  background-blend-mode: overlay;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  padding: 30px 40px;
+  position: relative;
+}
+
+/* === Header Section === */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.dashboard-title {
+  font-size: 2em;
+  font-weight: 700;
+  color: #004080;
+  margin: 0;
+}
+
+.welcome-message {
+  margin-top: 5px;
+  color: #555;
+}
+
+.logout-button {
+  background-color: #004080;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #1e90ff;
+}
+
+.logout-icon {
+  margin-right: 8px;
+}
+
+/* === Hero Section === */
+.hero-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero-title {
+  font-size: 1.8em;
+  color: #004080;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.hero-title .highlight {
+  color: #1e90ff;
+}
+
+.hero-description {
+  color: #555;
+  font-size: 1.1em;
+  margin-bottom: 25px;
+}
+
+/* Quick Actions */
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.quick-action-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.quick-action-link .action-icon {
+  margin-right: 8px;
+}
+
+.quick-action-link.primary {
+  background-color: #004080;
+  color: white;
+}
+
+.quick-action-link.primary:hover {
+  background-color: #1e90ff;
+}
+
+.quick-action-link.secondary {
+  border: 2px solid #004080;
+  color: #004080;
+  background: transparent;
+}
+
+.quick-action-link.secondary:hover {
+  background-color: #004080;
+  color: white;
+}
+
+/* === Features Grid === */
+.features-section {
+  margin-top: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* Feature Card Styles */
+.feature-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.card-icon {
+  font-size: 1.5em;
+}
+
+.card-title {
+  color: #004080;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.card-description {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  text-align: left;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.btn .btn-arrow {
+  margin-left: 8px;
+}
+
+.btn-primary {
+  background-color: #004080;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1e90ff;
+}
+
+.btn-outline-primary {
+  border: 2px solid #004080;
+  color: #004080;
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: #004080;
+  color: white;
+}
+
+.btn-outline-secondary {
+  border: 2px solid #999;
+  color: #333;
+  background: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+/* === Status Section === */
+.status-section {
+  margin-top: 50px;
+}
+
+.status-card {
+  background-color: #f8f9ff;
+  border: 2px dashed #cce;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+}
+
+.status-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #004080;
+  margin-bottom: 10px;
+}
+
+.status-description {
+  color: #555;
+  font-size: 1em;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .quick-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overlay {
+    padding: 25px 20px;
+  }
+}

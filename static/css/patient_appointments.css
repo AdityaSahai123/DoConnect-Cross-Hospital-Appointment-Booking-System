@@ -1,0 +1,41 @@
+
+.main {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%),
+              url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=2070&q=80')
+              no-repeat center/cover;
+  background-blend-mode: overlay;
+  min-height: 100vh;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #004080;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: #004080;
+  margin-top: 40px;
+}
+
+.table {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+thead th {
+  text-align: center;
+}
+
+td, th {
+  text-align: center;
+  vertical-align: middle;
+}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Select Department{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/select_departments.css' %}?v=3">
+{% endblock %}
+
+{% block content %}
+<section class="department-section">
+  <div class="department-overlay">
+
+    <!-- Header with Dashboard Button -->
+    <header class="department-header">
+      <div class="header-left">
+        <a href="{% url 'patient_afterlogin' %}" class="nav-button">
+          <span class="nav-icon">🏠</span> Back to Dashboard
+        </a>
+      </div>
+    </header>
+
+    <!-- Department Card -->
+    <main class="department-main">
+      <div class="department-card">
+        <h2 class="card-title">Select a Department</h2>
+        <p class="card-description">
+          <b>Choose a department to view doctors and schedule your appointment across multiple hospitals.</b>
+        </p>
+
+        <form action="{% url 'get_doctors' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="specialization">Department</label>
+            <select name="specialization" id="specialization" class="form-select" required>
+              <option value="">-- Select a Department --</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Oncology">Oncology</option>
+              <option value="Family Medicine">Family Medicine</option>
+              <option value="Internal Medicine">Internal Medicine</option>
+              <option value="Psychiatry">Psychiatry</option>
+              <option value="Gynecology">Gynecology</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+      </div>
+    </main>
+
+  </div>
+</section>
+{% endblock %}

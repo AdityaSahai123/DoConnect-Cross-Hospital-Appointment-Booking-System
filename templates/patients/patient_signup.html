@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}DocConnect – Patient Signup{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/patient_signup.css' %}?v=1">
+{% endblock %}
+
+{% block content %}
+<div class="signup-section">
+  <div class="overlay">
+    <div class="signup_form">
+      <h2>Patient Sign Up</h2>
+      {% if errormsg %}
+      <script>
+        alert("{{ errormsg }}");
+      </script>
+      {% endif %}
+      <form action="{% url 'save_patient' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="contact">Contact No:</label>
+        <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <footer class="footer">
+    <p>&copy; 2025 DocConnect. All rights reserved.</p>
+  </footer>
+{% endblock %}

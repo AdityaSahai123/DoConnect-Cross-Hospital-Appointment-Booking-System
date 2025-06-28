@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}DocConnect – Patient{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/patient_page.css' %}">
+  <style>
+    .home-btn-card {
+      background-color: #007bff;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .home-btn-card:hover {
+      background-color: #0056b3;
+    }
+  </style>
+{% endblock %}
+
+{% block heading %}{% endblock %}
+
+{% block content %}
+<section class="stakeholders-section">
+  <div class="overlay">
+    
+    <!-- Home Button inside the card -->
+    <div style="text-align: left;">
+      <a href="{% url 'home_page' %}" class="home-btn-card">Home</a>
+    </div>
+
+    <h1>Find Doctors at Our Partner Hospitals</h1>
+
+    <div class="hospital-list" style="margin-top: 20px; text-align: left; max-width: 500px; margin-inline: auto;">
+      <ul style="list-style: none; padding: 0; font-size: 1.1em;">
+        <li style="margin-bottom: 10px;">
+          <i class="fas fa-hospital" style="color: #1e90ff; margin-right: 10px;"></i>
+          <strong>Garden City Hospital Center</strong>
+        </li>
+        <li style="margin-bottom: 10px;">
+          <i class="fas fa-hospital" style="color: #1e90ff; margin-right: 10px;"></i>
+          <strong>Mountain View Hospital Center</strong>
+        </li>
+        <li style="margin-bottom: 10px;">
+          <i class="fas fa-hospital" style="color: #1e90ff; margin-right: 10px;"></i>
+          <strong>Silverwood Hospital</strong>
+        </li>
+      </ul>
+    </div>
+
+    <div class="stakeholder-container" style="margin-top: 35px;">
+      <a href="{% url 'patient_login' %}" class="stakeholder">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        <h3>Login</h3>
+        <p>Already have an account?</p>
+      </a>
+
+      <a href="{% url 'patient_signup' %}" class="stakeholder">
+        <i class="fa-solid fa-user-plus"></i>
+        <h3>Sign Up</h3>
+        <p>New to DocConnect? Create your account</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2025 DocConnect. All rights reserved.</p>
+</footer>
+{% endblock %}
+

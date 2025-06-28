@@ -1,6 +1,6 @@
 # 🏥 DocConnect – Unified Multi-Hospital Appointment Booking System
 
-Welcome to **DocConnect**, a powerful Django-based web application that enables patients to book appointments across multiple hospitals seamlessly. Built to handle **heterogeneous schemas** across different database systems, DocConnect intelligently maps and integrates data using **semantic matching** and **NLP techniques**.
+Welcome to **DocConnect**, a powerful Django-based web application that enables patients to book appointments across multiple hospitals seamlessly. Built to handle **heterogeneous schemas** across different database systems, DocConnect intelligently maps and integrates data using **semantic matching** and **string Matching Algorithms**.
 
 ## 📌 Features
 
@@ -17,10 +17,9 @@ Welcome to **DocConnect**, a powerful Django-based web application that enables 
   - Foreign key resolution
 
 ### 🔄 Multi-Database Integration
-- PostgreSQL (Render-hosted)
-- MySQL (TiDB Cloud-hosted)
-- Schema-agnostic querying across hospitals
-
+- 1 PostgreSQL (Render-hosted)
+- 2 MySQL (TiDB Cloud-hosted)
+- Schema-agnostic querying across hospitals: Search and retrieve appointment or doctor information seamlessly, regardless of differences in hospital database structures.
 ---
 
 ## 🏗️ Project Architecture
@@ -37,6 +36,8 @@ Welcome to **DocConnect**, a powerful Django-based web application that enables 
  ┗ 📜 README.md
 
 ```
+## flowchart
+![DocConnect Flowchart](./FlowChartDocConnect.png)
 
 ## ⚙️ Technologies Used
 
@@ -48,19 +49,12 @@ Welcome to **DocConnect**, a powerful Django-based web application that enables 
 | 💻 Frontend | HTML, CSS, Bootstrap 5 |
 
 
-## 🔐 Security & Session Handling
-- Session-based authentication for patients
-- Password hashing and data validation (can be extended using django.contrib.auth)
-- Role-based access ready (extendable)
-
----
-
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/docconnect.git
-cd docconnect
+git clone https://github.com/prashantshrotriyas/DocConnect.git
+cd Docconnect
 ```
 
 ### 2. Set Up Virtual Environment
@@ -71,8 +65,9 @@ pip install -r requirements.txt
 ```
 
 ### 3. Configure .env
-Create a `.env` file and fill in your database credentials:
-
+Create a `.env` file in the project root directory and provide your database credentials.  
+Before proceeding, ensure you have set up three databases: two on TiDB Cloud (MySQL-compatible) and one on Render (PostgreSQL).  
+Update the `.env` file with the connection details for each database as required by your application's configuration.
 
 ### 4. Run Migrations
 ```bash
@@ -88,5 +83,3 @@ Visit http://127.0.0.1:8000 to access the app.
 
 ---
 
-
----

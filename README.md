@@ -1,6 +1,6 @@
 # 🏥 DocConnect – Unified Multi-Hospital Appointment Booking System
 
-Welcome to **DocConnect**, a powerful Django-based web application that enables patients to book appointments across multiple hospitals seamlessly. Built to handle **heterogeneous schemas** across different database systems, DocConnect intelligently maps and integrates data using **semantic matching** and **string Matching Algorithms**.
+Welcome to **DocConnect**, a powerful Django-based web application that enables patients to book appointments across multiple hospitals seamlessly. Built to handle **heterogeneous schemas** across different database systems, DocConnect intelligently maps schemas using **semantic matching** and **string Matching Algorithms**.
 
 ## 📌 Features
 
@@ -60,7 +60,7 @@ cd Docconnect
 ### 2. Set Up Virtual Environment
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate 
 pip install -r requirements.txt
 ```
 

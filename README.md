@@ -1,7 +1,7 @@
 # 🏥 DocConnect – Unified Multi-Hospital Appointment Booking System
 
 Welcome to **DocConnect**, a powerful Django-based web application that enables patients to book appointments across multiple hospitals seamlessly. Built to handle **heterogeneous schemas** across different database systems, DocConnect intelligently maps schemas using **semantic matching** and **string Matching Algorithms**.
-
+Team: Prashant Shrotriya, Aditya Sahai, Nimish Goyal
 ## 📌 Features
 
 ### ✅ Patient-Centric Appointment Management
